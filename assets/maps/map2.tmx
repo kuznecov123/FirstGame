@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="32" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="25">
+ <tileset firstgid="1" name="1985_reference" tilewidth="16" tileheight="16" tilecount="1024" columns="32">
+  <image source="1985_reference.png" width="512" height="512"/>
+ </tileset>
+ <layer id="1" name="Слой тайлов 1" width="32" height="21" offsetx="0" offsety="1">
+  <data encoding="base64" compression="zlib">
+   eJzTYWBgSB1ArDNq/6j9o/aP2j9q/6j9o/aP2j9qP9UxAx65xwOMAYwYFBc=
+  </data>
+ </layer>
+ <layer id="2" name="Слой тайлов 2" width="32" height="21" offsetx="1" offsety="1">
+  <data encoding="base64" compression="zlib">
+   eJztj8sNgCAUBKnGbx9+60AbUFuyE/WqFTkFGEEJEpM3ydz27YJSgiAIQkgijDHBFDPMP9wvsMQKa2yw/XD/iv7FzYAjTo7b2vHe1H3Xry0yTzttsj7//CfmgNsLrrgZcjselp2d04v8cgK7JQ3J
+  </data>
+ </layer>
+ <objectgroup id="3" name="Слой объектов 1" offsetx="0" offsety="1">
+  <object id="24" name="camera" x="256" y="287">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="монетки">
+  <object id="15" x="81" y="250">
+   <point/>
+  </object>
+  <object id="16" x="192" y="251">
+   <point/>
+  </object>
+  <object id="17" x="418" y="253">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

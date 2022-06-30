@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="188" height="44" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="26">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="188" height="44" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="36">
  <properties>
   <property name="фон" value="fon.png"/>
  </properties>
@@ -79,10 +79,38 @@
   </object>
  </objectgroup>
  <objectgroup id="5" name="land">
-  <object id="21" x="-1.60417" y="0.1875" width="142.667" height="380"/>
-  <object id="22" x="129.729" y="368.063" width="1278.08" height="172"/>
+  <object id="21" x="-1.60417" y="0.1875" width="142.667" height="380">
+   <properties>
+    <property name="density" type="float" value="1"/>
+    <property name="friction" type="float" value="0.25"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="name" value="wall"/>
+    <property name="restitution" type="float" value="0.125"/>
+    <property name="type" value="StaticBody"/>
+   </properties>
+  </object>
+  <object id="22" x="129.729" y="368.063" width="1278.08" height="172">
+   <properties>
+    <property name="density" type="float" value="1"/>
+    <property name="friction" type="float" value="0.25"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="name" value="wall"/>
+    <property name="restitution" type="float" value="0.125"/>
+    <property name="type" value="StaticBody"/>
+   </properties>
+  </object>
   <object id="24" x="641.322" y="208.043" width="59.4638" height="9.44928"/>
   <object id="25" x="726.601" y="208.609" width="56.1305" height="9.44928"/>
+  <object id="33" x="1457.33" y="368.667" width="125.333" height="22.6667">
+   <properties>
+    <property name="density" type="float" value="1"/>
+    <property name="friction" type="float" value="0.25"/>
+    <property name="gravityScale" type="float" value="1"/>
+    <property name="name" value="wall"/>
+    <property name="restitution" type="float" value="0.125"/>
+    <property name="type" value="StaticBody"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="4" name="Слой объектов 2">
   <object id="12" name="camera" x="189.333" y="370.667">

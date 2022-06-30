@@ -41,48 +41,54 @@ public class FirstGame extends ApplicationAdapter {
   private World world;
   private Box2DDebugRenderer debugRenderer;
   private boolean start;
+  private PhysX physX;
 
 
   @Override
   public void create () {
 
-    world = new World(new Vector2(0, -9.81f), true);
-    debugRenderer = new Box2DDebugRenderer();
-
-    BodyDef def = new BodyDef();
-    FixtureDef fdef = new FixtureDef();
-    PolygonShape polygonShape = new PolygonShape();
-
-
-    def.position.set(new Vector2(130f, 300f));
-    def.type = BodyDef.BodyType.StaticBody;
-    fdef.density = 1;
-    fdef.friction = 1f;
-
-    polygonShape.setAsBox(100, 10);
-    fdef.shape = polygonShape;
-
-    world.createBody(def).createFixture(fdef);
-
-      for (int i = 0; i < 10; i++) {
-          def.position.set(new Vector2(MathUtils.random(0, 260f), 450f));
-          def.type = BodyDef.BodyType.DynamicBody;
-          def.gravityScale = MathUtils.random(0.5f, 5f);
-          float size = MathUtils.random(3f, 15f);
-          polygonShape.setAsBox(size, size);
-          fdef.shape = polygonShape;
-          world.createBody(def).createFixture(fdef);
-      }
+//    world = new World(new Vector2(0, -9.81f), true);
+//    debugRenderer = new Box2DDebugRenderer();
+//
+//    BodyDef def = new BodyDef();
+//    FixtureDef fdef = new FixtureDef();
+//    PolygonShape polygonShape = new PolygonShape();
 
 
-    polygonShape.dispose();
+//    def.position.set(new Vector2(130f, 300f));
+//    def.type = BodyDef.BodyType.StaticBody;
+//    fdef.density = 1;
+//    fdef.friction = 1f;
+
+   // polygonShape.setAsBox(100, 10);
+//    fdef.shape = polygonShape;
+//
+//    world.createBody(def).createFixture(fdef);
+
+//      for (int i = 0; i < 10; i++) {
+//          def.position.set(new Vector2(MathUtils.random(0, 260f), 450f));
+//          def.type = BodyDef.BodyType.DynamicBody;
+//          def.gravityScale = MathUtils.random(0.5f, 5f);
+//          float size = MathUtils.random(3f, 15f);
+//          polygonShape.setAsBox(size, size);
+//          fdef.shape = polygonShape;
+//          world.createBody(def).createFixture(fdef);
+//      }
 
 
+//    polygonShape.dispose();
 
+    physX = new PhysX();
     chip = new MyCharacter();
     fon = new Texture("fon.png");
     map = new TmxMapLoader().load("maps/map1.tmx");
     mapRenderer = new OrthogonalTiledMapRenderer(map);
+
+
+    if (map.getLayers().get("land") != null){
+      MapObjects mo =  map.getLayers().get("land").getObjects();
+      physX.addObject(mo);
+    }
 
     foreGround = new int[1];
     foreGround[0] = map.getLayers().getIndex("Слой тайлов 2");
@@ -184,8 +190,11 @@ public class FirstGame extends ApplicationAdapter {
 //		renderer.setColor(heroClr);
 //		renderer.rect(heroRect.x, heroRect.y, heroRect.width, heroRect.height);
 //		renderer.end();
-      if (start) world.step(1/60.0f, 3, 3);
-      debugRenderer.render(world, camera.combined);
+//      if (start) world.step(1/60.0f, 3, 3);
+//      debugRenderer.render(world, camera.combined);
+
+    physX.step();
+    physX.debugDraw(camera);
 
 
   }
@@ -194,6 +203,7 @@ public class FirstGame extends ApplicationAdapter {
   public void dispose () {
     batch.dispose();
     coinList.get(0).dispose();
+    physX.dispose();
   }
 
   }
